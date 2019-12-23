@@ -1,0 +1,17 @@
+{
+    "name": "slim/slimtest3",
+    "description": "demo project",
+    "authors": [
+        {
+            "name": "sanekagr",
+            "email": "sanekagr@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.0",
+        "slim/slim": "^3.12.3",
+        "slim/php-view": "^2.2.1",
+        "monolog/monolog": "^1.17",
+        "dyorg/slim-token-authentication": "^0.3.3"
+    }
+}
