@@ -33,7 +33,7 @@ $authenticator = function($request, TokenAuthentication $tokenAuth) {
  */
  $app->add(new TokenAuthentication([
 
-    'path' => [], //[] - all routes that need authentication must be inserted there
+    'path' => ['/users','/insert_user'], //[] - all routes that need authentication must be inserted there
     'passthrough' => [],//all routes that will not pass Authentication need to add here
     'authenticator' => $authenticator,
     'secure' => false

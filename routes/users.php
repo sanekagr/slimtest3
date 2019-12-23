@@ -3,6 +3,11 @@
 use Slim\Http\Request;
 use Slim\Http\Response;
 
+$app->get('/', function(Request $request, Response $response, array $args){
+
+    return $response->write("Hello!");
+});
+
 //insert_user function
 $app->post('/insert_user', function (Request $request, Response $response, array $args) {
 
@@ -31,7 +36,7 @@ $app->post('/insert_user', function (Request $request, Response $response, array
 
     $user_model = new Model\Users($this->db);
 
-    $user_id = $user_model->insertUser($name,$email,$pass);
+    $user_id = $user_model->insertUser($name,$email,$password_encripted);
 
     //check if results received
     if($user_id == false) { return $response->write("User was not inserted");}
@@ -51,7 +56,7 @@ $app->get('/users', function (Request $request, Response $response, array $args)
 
     if(!isset($users) || empty($users)) { $response->write("Users not defined!"); }
 
-    return  $response->withJSON($inventory_comparison);
+    return  $response->withJSON($users); 
 
 }); //$app->get('/users'
 

@@ -22,7 +22,7 @@ class Users
 
         $db = $this->db;
         $stmt = $db->prepare("SELECT `UserID`,`name`,`email` FROM `users`");
-        $stmt->execute([$order_ref]);
+        $stmt->execute();
 
         //array of the products with on-hand quantity from DB
         $users = $stmt->fetchAll();
@@ -48,11 +48,11 @@ class Users
 
         try{
     
-            $stmt = $pdo->prepare("INSERT INTO `users` (`name`,`email`,`password`) VALUES (?, ?, ?)");
+            $stmt = $db->prepare("INSERT INTO `users` (`name`,`email`,`password`) VALUES (?, ?, ?)");
             $stmt->execute([$name,$email,$pass]);
 
-            $user_id = $pdo->lastInsertId();
-            $stmt = null;
+            $user_id = $db->lastInsertId();
+            $db = null;
 
         } catch (Exception $e){
 

@@ -7,9 +7,9 @@ return [
         'token' => 'stn465#0!7',
 
         //database settings
-        //site management database and user 
+        //site management database and user
         'db' => [
-            'pdo_string' => 'mysql:Server=localhost;Database=',
+            'pdo_string' => 'mysql:host=localhost;dbname=',
             'user' => 'root',
             'pass' => '',
             'dbname' => 'slimtest3'
